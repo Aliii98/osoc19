@@ -24,17 +24,21 @@ do
 
 ServerName=`echo $s | cut -d _ -f1`
 
-Year=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 1-4`
+#Year=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 1-4`
 
-Month=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 5-6`
+#Month=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 5-6`
 
-Day=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 7-8`
+#Day=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 7-8`
 
-Hour=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 9-10`
+Date=`capinfos -Tra $s | awk '{print $2 }'`
 
-Minutes=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 11-12`
+#Hour=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 9-10`
 
-file="${ServerName}_${Year}-${Month}-${Day}_${Hour}:${Minutes}.pcap"
+#Minutes=`echo $s | cut -d _ -f 3 | cut -d . -f 1 | cut -c 11-12`
+
+Time=`capinfos -Tra $s | awk '{print $3 }' | cut -c 1-5`
+
+file="${ServerName}_${Date}_${Time}.pcap"
 
 
 mv temp/$s temp/${file}
