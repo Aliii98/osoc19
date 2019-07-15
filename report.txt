@@ -1,0 +1,10 @@
+#How to access impala form the namenode(first server)
+impala-shell -i datanode1.entrada.om:21000
+
+#How to remove the content of table from impala and graphite
+truncate tablename;
+
+then 
+
+remove files from 
+/opt/graphite/storage/whisper/entrada
