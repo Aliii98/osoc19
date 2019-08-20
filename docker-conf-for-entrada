@@ -1,0 +1,27 @@
+#install docker
+
+#install docker-compose from the website , last version
+
+#install postgresql 
+
+#edit pg_hba.conf by adding  	
+host    all             all             172.18.0.2/32           trust
+##172.18.0.2 this is the ip of docker how and why ,, I don't know 
+
+#edit postgresql.conf by adding or changing to 
+listen_addresses = '*'
+
+
+
+hints!!
+how to find the location of pg_hba.conf and postgresql.conf ??
+-sudo su - postgres
+-psql
+-show hba_file;
+
+how to test the connection to the post if it is enabled..??
+- psql -U postgres -h 127.0.0.1 
+ you can change the host 127.0.0.1
+
+how to set a password for postgresql ??
+ask google
